@@ -53,7 +53,7 @@ create_editing_file() {
 }
 
 append_file() {
-  echo -e "I committed at $(date)" >> $FILENAME
+  echo "I committed at $(date)" >> $FILENAME
 }
 
 commit_and_push() {
