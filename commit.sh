@@ -70,7 +70,6 @@ main()
   create_editing_file
   append_file
   commit_and_push
-
 }
 
 main
