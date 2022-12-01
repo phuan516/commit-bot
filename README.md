@@ -1,6 +1,6 @@
 # Commit Bot
 
-Ever dreamed of having you github acticity all filled up with those green squares but don't want to actually code? Dream no more. This script will will solve all your problems by pushing a single line of text to a file.
+Ever dreamed of having you github acticity all filled up with those green squares but don't want to actually code? Dream no more. This script will make your dreams come true.
 
 ## Description
 
