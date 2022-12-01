@@ -1,9 +1,9 @@
 #!/bin/bash
 
 FILENAME="amazing_code.txt" # The file that this script will be editing
-REPO_PATH="." # Make sure it's complete
+REPO_PATH="/home/peterhuang/commit-bot" # Make sure it's complete
 
-function check_git() {
+check_git() {
 
   GIT_VERSION=`git --version | grep "git version"`
 
@@ -16,14 +16,17 @@ function check_git() {
   fi
 }
 
-function go_to_repo() {
+go_to_repo() {
   # Check if repo path is found and if it's a repo
 
   cd $REPO_PATH
   
   CURRENT_DIR=$(pwd)
 
-  if [ $REPO_PATH == $CURRENT_DIR ]
+  echo $REPO_PATH
+  echo $CURRENT_DIR
+
+  if [ $REPO_PATH = $CURRENT_DIR ]
   then
     : # Do nothing as path already exists
   else
@@ -31,7 +34,7 @@ function go_to_repo() {
     exit
   fi
   
-  if [ $(git rev-parse --is-inside-work-tree) == "true" ]
+  if [ $(git rev-parse --is-inside-work-tree) = "true" ]
   then
     : # Do nothing as directory is a git repo
   else
@@ -40,7 +43,7 @@ function go_to_repo() {
   fi
 }
 
-function create_editing_file() {
+create_editing_file() {
   if [ -e $FILENAME ]
   then
     : # Do nothing as file already exist
@@ -49,18 +52,18 @@ function create_editing_file() {
   fi 
 }
 
-function append_file() {
+append_file() {
   echo -e "I committed at $(date)" >> $FILENAME
 }
 
-function commit_and_push() {
+commit_and_push() {
   # Ensure that your git credentials are set correctly or else these commands will fail
   git add .
   git commit -m "Adding commit at $(date)"
   git push
 }
 
-function main()
+main()
 {
   check_git
   go_to_repo
