@@ -17,7 +17,7 @@ If you are even more lazy, schedule the script as a task and never worrie about 
 ```
 REPO_PATH = "absolute path to your repo"
 ```
-4. That is all fokes, run `commit.sh` and your commit for the day is done.
+4. That is all folkes, run `commit.sh` and your commit for the day is done.
 5. Use crontab to schedule the script to run daily (optional)
 
 ```
