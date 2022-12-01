@@ -1,7 +1,10 @@
 #!/bin/bash
 
+. ./config.sh
+
+echo $REPO_PATH
+
 FILENAME="amazing_code.txt" # The file that this script will be editing
-REPO_PATH="/home/peterhuang/commit-bot" # Make sure it's complete
 
 check_git() {
 
@@ -22,9 +25,6 @@ go_to_repo() {
   cd $REPO_PATH
   
   CURRENT_DIR=$(pwd)
-
-  echo $REPO_PATH
-  echo $CURRENT_DIR
 
   if [ $REPO_PATH = $CURRENT_DIR ]
   then
