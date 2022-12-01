@@ -60,7 +60,7 @@ commit_and_push() {
   # Ensure that your git credentials are set correctly or else these commands will fail
   git add .
   git commit -m "Adding commit at $(date)"
-  git push
+  git push origin master
 }
 
 main()
