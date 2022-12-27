@@ -10,10 +10,8 @@ check_git() {
 
   GIT_VERSION=`git --version | grep "git version"`
 
-  if [ "$GIT_VERSION" != "" ]
+  if [ "$GIT_VERSION" == "" ]
   then
-    : # Do nothing as git is found
-  else
     echo "Error: Git not found. Make sure to install it or add it to your path"
     exit
   fi
