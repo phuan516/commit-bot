@@ -10,6 +10,7 @@ check_git() {
 
   GIT_VERSION=`git --version | grep "git version"`
 
+  # Check if Git is installed
   if [ "$GIT_VERSION" == "" ]
   then
     echo "Error: Git not found. Make sure to install it or add it to your path"
@@ -18,36 +19,31 @@ check_git() {
 }
 
 go_to_repo() {
-  # Check if repo path is found and if it's a repo
 
   cd $REPO_PATH
   
   CURRENT_DIR=$(pwd)
 
-  if [ $REPO_PATH = $CURRENT_DIR ]
+  # Check if repo path exists
+  if [ $REPO_PATH != $CURRENT_DIR ]
   then
-    : # Do nothing as path already exists
-  else
     echo "Error: Repo Path: ${REPO_PATH} Not Found"
     exit
   fi
   
-  if [ $(git rev-parse --is-inside-work-tree) = "true" ]
+  #Check if directory is a repo
+  if [ $(git rev-parse --is-inside-work-tree) != "true" ]
   then
-    : # Do nothing as directory is a git repo
-  else
     echo "Error: Directory Is Not A Git Repo"
     exit
   fi
 }
 
 create_editing_file() {
-  if [ -e $FILENAME ]
+  if [ ! -e $FILENAME ]
   then
-    : # Do nothing as file already exist
-  else
     touch $FILENAME
-  fi 
+  fi
 }
 
 append_file() {
