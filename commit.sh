@@ -31,7 +31,7 @@ go_to_repo() {
     exit
   fi
   
-  #Check if directory is a repo
+  # Check if directory is a repo
   if [ $(git rev-parse --is-inside-work-tree) != "true" ]
   then
     echo "Error: Directory Is Not A Git Repo"
@@ -40,6 +40,8 @@ go_to_repo() {
 }
 
 create_editing_file() {
+
+  # Create new file if file dosen't exist
   if [ ! -e $FILENAME ]
   then
     touch $FILENAME
@@ -51,7 +53,6 @@ append_file() {
 }
 
 commit_and_push() {
-  # Ensure that your git credentials are set correctly or else these commands will fail
   git add .
   git commit -m "Adding commit at $(date)"
   git push origin master
