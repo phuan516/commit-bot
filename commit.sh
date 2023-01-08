@@ -12,12 +12,12 @@ check_git() {
 
   # Check if Git is installed
 
-  if [ "$GIT_VERSION" != "" ]
+  if [ "$GIT_VERSION" == "" ]
   then
-    : # Do nothing as git is found
-  else
     echo "Error: Git not found. Make sure to install it or add it to your path"
     exit
+  else
+    :
   fi
 }
 
