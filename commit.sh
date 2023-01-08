@@ -16,8 +16,6 @@ check_git() {
   then
     echo "Error: Git not found. Make sure to install it or add it to your path"
     exit
-  else
-    :
   fi
 }
 
