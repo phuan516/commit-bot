@@ -53,19 +53,30 @@ append_file() {
   echo "I committed at $(date)" >> $FILENAME
 }
 
-commit_and_push() {
+add_and_commit() {
   git add .
   git commit -m "Adding commit at $(date)"
+
+}
+
+push() {
   git push origin master
 }
 
 main()
-{
+{ 
+  randomNumber=$(shuf -i 1-6 -n 1)
   check_git
   go_to_repo
   create_editing_file
   append_file
-  commit_and_push
+  
+  until [ $randomNumber -eq 0 ]
+do
+add_and_commit
+let "randomNumber-=1" 
+done
+  push
 }
 
 main
