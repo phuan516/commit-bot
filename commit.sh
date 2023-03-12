@@ -69,13 +69,12 @@ main()
   check_git
   go_to_repo
   create_editing_file
-  append_file
-  
   until [ $randomNumber -eq 0 ]
-do
-add_and_commit
-let "randomNumber-=1" 
-done
+  do
+  append_file
+  add_and_commit
+  let "randomNumber-=1" 
+  done
   push
 }
 
