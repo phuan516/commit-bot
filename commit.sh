@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./config.sh
+read REPO_PATH < config.sh
 
 echo $REPO_PATH
 
